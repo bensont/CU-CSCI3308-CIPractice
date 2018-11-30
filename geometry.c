@@ -70,21 +70,25 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
 
 }
 
-double cord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
-  double this_area;
-  double this_height;
-  double this_base;
+double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
+  // /*double this_area;
+  // double this_height;
+  // double this_base;
+  //
+  // /* Find the midpoint between b and c for height base point*/
+  // coord_2d_t this_midpoint;
+  // coord_2d_midpoint(&this_midpoint, b, c);
+  // /* Find the distance between the midpoint and a for height*/
+  // this_height = coord_2d_dist(a,&this_midpoint);
+  //
+  // /* Find the distance between b and c for base*/
+  // this_base = coord_2d_dist(b,c);
+  //
+  // /* Find the area of the tiangle */
+  // this_area = (this_base * this_height) / 2;
+  // return this_area;
+  double area;
+  area = abs(((a->x)*(b->y - c->y) + (b->x)*(c->y - a->y) + (c->x)*(a->y - b->y))/2);
+  return area;
 
-  /* Find the midpoint between b and c for height base point*/
-  coord_2d_t this_midpoint;
-  coord_2d_midpoint(&this_midpoint, b, c);
-  /* Find the distance between the midpoint and a for height*/
-  this_height = coord_2d_dist(a,&this_midpoint);
-
-  /* Find the distance between b and c for base*/
-  this_base = coord_2d_dist(b,c);
-
-  /* Find the area of the tiangle */
-  this_area = (this_base * this_height) / 2;
-  return this_area;
 }
